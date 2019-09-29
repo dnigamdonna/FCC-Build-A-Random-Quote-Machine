@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quote Machine</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+                $(document).ready(function() {
+                    var quoteArray=[
+                        {quote:"What a caterpillar calls the end of the world we call a butterfly", author:"-Eckhart Tolle", color:"#feb236"},
+                        {quote:"And, when you want something, all the universe conspires in helping you to achieve it.", author:"-Paulo Coelho", color:"#d64161"},
+                        {quote:"Be-don't try to become", author:"-Osho", color:"#6b5b95"},
+                        {quote:"In prayer it is better to have a heart without words than words without a  heart", author:"-Mahatma Gandhi", color:"#ff7b25"},
+                        {quote:"Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself", author:"-Rumi", color:"#eea29a"},
+                        {quote:"If you can't feed a hundred people, then feed just one.", author:"Mother Terressa", color:"#bd5734"},
+                        {quote:"With hard work and dedication, anything is possible.", author:"-Timothy Weah", color:"#b1cbbb"},
+                        {quote:"Life is like riding a bicycle. To keep your balance you must keep moving.", author:"-Albert Einstein", color:"#d4ac6e"},
+                        {quote:"Design is not just what it looks like and feels like. Design is how it works", author:"-Steve Jobs", color:"#587e76"},
+                        {quote:"You will not be punished for your anger, you will be punished by your anger", author:"-Buddha",color:"#cab577"},
+                        {quote:"Success is a lousy teacher. It seduces smart people into thinking they can’t lose.", author:"-Bill Gates",color:"#c83349"},
+                        {quote:"It is hard to fail, but it is worse never to have tried to succeed.", author:"-Theodore Roosevelt",color:"#ff6f69"},
+                        {quote:"Let us pick up our books and our pens, they are the most powerful weapons.", author:"-Malala Yousafzai",color:"#f9d5e5"},
+                        {quote:"If you're walking down the right path and you're willing to keep walking, eventually you'll make progress", author:"-Barack Obama",
+                        color:"#b8a9c9"},
+                        {quote:"Some people want it to happen, some wish it would happen, others make it happen.", author:"-Michael Jordan",color:"#eca1a6"},
+                        ];
+                    var bgcolorArray=
+                        ["#A9A9A9","#BC8F8F","#D2B48C","#BDB76B","#F0FFF0","#FA8072","#ffff89","#BC8F8F","#998066","#999966","#D8BFD8","#E6E6FA","#F5FFFA","#FAFAD2","#FFDAB9"];
+                    $("#text").text(quoteArray[3].quote);
+                    $("#author").text(quoteArray[3].author);
+                    $("#new-quote").click(function() {
+                        var i= Math.floor(Math.random() * 14 + 1);
+                       $("#text").animate({opacity: "0.2"}, "slow");
+                        $("#text").text(quoteArray[i].quote).
+                            prepend('<i style="font-size:24px" class="fa">&#xf10d;</i>').
+                            append('<i style="font-size:24px" class="fa">&#xf10e;</i><br>').animate({opacity: "0.2"}, "slow");
+                        $("#author").text(quoteArray[i].author);
+                        $("#quote-box").css("background-color", quoteArray[i].color);
+                        $("body").css("background-color", bgcolorArray[i]);
+                        $("#text").animate({opacity:"1"}, "slow");
+                    });
+            });
+        </script>
+        <style>
+            .customStyle{
+                background-color:silver;
+                text-align: center;
+                height: 300px;
+                margin-top: 300px;
+                padding: 5px;
+                border-radius: 40px;
+                box-shadow:rebeccapurple;
+            }
+            .btnStyle{
+                display: block;
+                margin-top: 80px;
+            }
+            .mytext{
+                margin: 30px;
+            }
+            #text, #author{
+                font-weight: bold;
+                font-size:larger;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-style: italic;
+                color: brown;
+                word-wrap: break-word;
+            }
+            .btn-primary{
+                background-color: palevioletred;
+            }
+            .btn:hover{
+                background-color:saddlebrown;
+            }
+            .textStyle{
+                padding-top: 35px;
+            }
+            .authorStyle{
+                padding-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="customStyle" id="quote-box">
+                        <div class="textStyle">
+                        <span id="text"  class="s1-text center-block"></span>
+                        </div>
+                        <div class="authorStyle">
+                        <span id="author" class="s1-text center-block"></span>
+                        </div>
+                        <div class="btnStyle">
+                        <button type="button" class="btn btn-default btn-primary" id="new-quote">Quote</button>
+                        <a href="twitter.com/intent/tweet" id="tweet-quote"><button class="btn btn-default btn-primary"><i class="fa fa-twitter-square"></i></button></a>
+                        <button type="button" class="btn btn-default btn-primary" id="instagram" name="ibtn"><i class="fa fa-instagram"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+        <!--script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script-->
+    </body>
+</html>
